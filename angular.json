@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-remote"
+    }
+  },
+  "defaultProject": "ng-remote",
+  "cli": {
+    "analytics": "6fba89ad-4295-472e-9be4-cbea02a04220"
+  }
 }
