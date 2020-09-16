@@ -10,6 +10,8 @@ import { InfoComponent } from './components/info/info.component';
 import { MouseCursorComponent } from './components/mouse-cursor/mouse-cursor.component';
 import { TitleBoxComponent } from './components/title-box/title-box.component';
 
+import { WINDOW, getWindow } from './books/services/window.provider'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { TitleBoxComponent } from './components/title-box/title-box.component';
     BooksModule,
     AboutModule
   ],
-  providers: [],
+  providers: [
+    {provide: WINDOW, useFactory: getWindow}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

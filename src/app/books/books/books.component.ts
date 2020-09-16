@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { WINDOW } from '../services/window.provider';
 
 @Component({
   selector: 'app-books',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(WINDOW) private window: Window) { }
 
   ngOnInit(): void {
   }
