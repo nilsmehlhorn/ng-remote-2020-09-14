@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-title-box',
@@ -12,7 +12,13 @@ export class TitleBoxComponent implements OnInit {
     this.computedTitle = '[TITLE] ' + title;
   }
 
+  @Output() titleClicked = new EventEmitter<string>();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onClick(): void {
+    this.titleClicked.emit(`Clicked: ${this.computedTitle}`);
+  }
 }

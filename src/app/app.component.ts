@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   localVarOnComponent = 'This is a dynamic string';
+
+  onTitleClick(event: string): void {
+    console.log(event);
+  }
 }
