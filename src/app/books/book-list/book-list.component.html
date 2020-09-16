@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let book of books">
+    <header>{{ book.title }}</header>
+    <p>{{ book.subtitle }}</p>
+    <p id="if" *ngIf="book.author else noAuthor">{{ book.author }}</p>
+    <ng-template #noAuthor>
+      <p id="else">No Author</p>
+    </ng-template>
+  </li>
+</ul>
