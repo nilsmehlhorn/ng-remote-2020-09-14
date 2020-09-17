@@ -1,31 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BookDataService } from '../services/book-data.service';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from '../models/book';
-import { Subject, Subscription } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { BookDataService } from '../services/book-data.service';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
 })
-export class BookListComponent implements OnInit, OnDestroy {
-  books: Book[];
-
-  destroy = new Subject<void>();
+export class BookListComponent implements OnInit {
+  books$: Observable<Book[]>;
 
   constructor(private bookData: BookDataService) {}
 
   ngOnInit(): void {
-    this.bookData
-      .getBooks()
-      .pipe(takeUntil(this.destroy))
-      .subscribe((books: Book[]) => {
-        this.books = books;
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.destroy.next();
+    this.books$ = this.bookData.getBooks();
   }
 }
