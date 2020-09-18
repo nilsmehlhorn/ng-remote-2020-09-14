@@ -6,6 +6,16 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: '/books',
+  },
+  {
+    path: 'books',
+    loadChildren: () =>
+      import('./books/books.module').then(({ BooksModule }) => BooksModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./about/about.module').then(({ AboutModule }) => AboutModule),
   }
 ];
 

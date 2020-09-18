@@ -3,14 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BooksModule } from './books/books.module';
-import { AboutModule } from './about/about.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { InfoComponent } from './components/info/info.component';
 import { MouseCursorComponent } from './components/mouse-cursor/mouse-cursor.component';
 import { TitleBoxComponent } from './components/title-box/title-box.component';
 
 import { WINDOW, getWindow } from './books/services/window.provider';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { WINDOW, getWindow } from './books/services/window.provider';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BooksModule,
-    AboutModule,
+    HttpClientModule
   ],
   providers: [{ provide: WINDOW, useFactory: getWindow }],
   bootstrap: [AppComponent],

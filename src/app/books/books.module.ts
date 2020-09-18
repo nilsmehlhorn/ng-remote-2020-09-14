@@ -13,7 +13,6 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
   imports: [
     CommonModule,
     BooksRoutingModule,
-    HttpClientModule
   ],
   exports: [BooksComponent]
 })
