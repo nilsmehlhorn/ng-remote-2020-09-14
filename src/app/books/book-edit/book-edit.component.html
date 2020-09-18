@@ -1,0 +1,9 @@
+<form #form="ngForm" *ngIf="book$ | async as book">
+  <input
+    type="text"
+    [(ngModel)]="book.title"
+    name="title"
+    #title="ngModel"
+    required>
+  <div *ngIf="title.hasError('required')">Feld darf nicht leer sein</div>
+</form>
